@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :avatar
 
   has_one :profile, class_name: "UserProfile"
+  accepts_nested_attributes_for :profile
 
   validates :first_name, :last_name, presence: true
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
