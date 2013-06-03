@@ -46,18 +46,20 @@
   </style>
 </head>
 <body>
-  <nav>
-    <h1>VisageCodex</h1>
-    <ul>
-      <li><a href="<%= user_url(current_user) %>">Profile</a></li>
-      <li><a href="#">Friends</a></li>
-      <li><a href="#">Photos</a></li>
-      <li><a href="#">Wall</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#">New Post</a></li>
-      <li><a href="/users/sign_out">Sign Out</a></li>
-    </ul>
-  </nav>
+  <% if user_signed_in? %>
+    <nav>
+      <h1>VisageCodex</h1>
+      <ul>
+        <li><a href="<%= user_url(current_user) %>">Profile</a></li>
+        <li><a href="#">Friends</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">Wall</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">New Post</a></li>
+        <li><%= button_to "Sign Out", destroy_user_session_path, {method: :delete} %></li>
+      </ul>
+    </nav>
+  <% end %>
   <header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

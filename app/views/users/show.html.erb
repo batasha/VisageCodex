@@ -2,27 +2,29 @@
     <img src="http://starcasm.net/wp-content/uploads/2013/03/Tyrion-Lannister-tyrion-lannister-22907618-1280-720_0.jpg" height="200">
   </div>
   <section class="name-header">
-    <h1>Tyrion Lannister</h1>
+    <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
     <p>Presiding over the small council ...</p>
   </section>
   <table class="user-profile">
     <tbody>
       <tr>
         <th class="label">First Name</th>
-        <td class="data">Tyrion</td>
+        <td class="data"><%= @user.first_name %></td>
       </tr>
       <tr>
         <th class="label">Last Name</th>
-        <td class="data">Lannister</td>
+        <td class="data"><%= @user.last_name %></td>
       </tr>
-      <tr>
-        <th class="label">Hometown</th>
-        <td class="data">Casterly Rock</td>
-      </tr>
-      <tr>
-        <th class="label">Gender</th>
-        <td class="data">Male</td>
-      </tr>
+      <% if @profile %>
+        <tr>
+          <th class="label">Hometown</th>
+          <td class="data"><%= @profile.location %></td>
+        </tr>
+        <tr>
+          <th class="label">Gender</th>
+          <td class="data"><%= @profile.gender.upcase %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <table class="family">

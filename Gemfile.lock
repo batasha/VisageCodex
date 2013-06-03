@@ -31,6 +31,9 @@ GEM
     addressable (2.3.4)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -144,6 +147,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  better_errors
   coffee-rails (~> 3.2.1)
   debugger
   devise

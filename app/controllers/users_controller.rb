@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new(params[:user])
+    @user.profile.build
   end
 
   def create

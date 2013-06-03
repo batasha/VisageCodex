@@ -40,3 +40,4 @@ gem 'pry-rails'
 gem 'devise'
 gem 'letter_opener', group: :development
 gem 'paperclip'
+gem 'better_errors'
