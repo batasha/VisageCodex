@@ -5,9 +5,59 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <style type="text/css">
+
+    nav ul li {
+      display: inline;
+      margin: 20px;
+      height: 20px;
+    }
+
+    img {
+      margin: 40px;
+      float: left;
+    }
+
+    .name-header {
+      margin: 50px;
+      height: 200px;
+      clear: none;
+    }
+
+    table {
+      width: 300px;
+      clear: left;
+    }
+
+    th {
+      text-align: right;
+      padding: 3px 7px;
+    }
+
+    .user-profile {
+      float: left;
+    }
+
+    .family {
+      width: 300px;
+      display: inline;;
+    }
+  </style>
 </head>
 <body>
-
+  <nav>
+    <h1>VisageCodex</h1>
+    <ul>
+      <li><a href="<%= user_url(current_user) %>">Profile</a></li>
+      <li><a href="#">Friends</a></li>
+      <li><a href="#">Photos</a></li>
+      <li><a href="#">Wall</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">New Post</a></li>
+      <li><a href="/users/sign_out">Sign Out</a></li>
+    </ul>
+  </nav>
   <header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

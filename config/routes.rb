@@ -3,5 +3,7 @@ VisageCodex::Application.routes.draw do
 
   root to: 'users#index'
 
-  resources :users
+  resources :users do
+    resources :user_profiles
+  end
 end

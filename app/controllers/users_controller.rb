@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.includes(:profile).find(params[:id])
+    @profile = @user.profile
   end
 
   def edit
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to @user
+      redirect_to user_url(current_user)
     else
       render :edit
     end
