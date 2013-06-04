@@ -9,6 +9,8 @@ VisageCodex::Application.routes.draw do
     put :update_avatar
   end
 
+  resources :friends
+
   resource :account do
     get :settings
   end

@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_one :profile
   accepts_nested_attributes_for :profile
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+
   validates :first_name, :last_name, presence: true
   has_attached_file :avatar, styles: { medium: "200x200>", thumb: "100x100>" }
 end

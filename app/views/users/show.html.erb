@@ -22,28 +22,15 @@
         </tr>
         <tr>
           <th class="label">Gender</th>
-          <td class="data"><%= @profile.gender.upcase %></td>
+          <td class="data"><%= @profile.gender.capitalize %></td>
+        </tr>
+        <tr>
+          <th class="label">Birthday</th>
+          <td class="data"><%= @profile.birthday %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <table class="family">
-    <tbody>
-      <tr>
-        <th class="label">First Name</th>
-        <td class="data">Tyrion</td>
-      </tr>
-      <tr>
-        <th class="label">Last Name</th>
-        <td class="data">Lannister</td>
-      </tr>
-      <tr>
-        <th class="label">Hometown</th>
-        <td class="data">Casterly Rock</td>
-      </tr>
-      <tr>
-        <th class="label">Gender</th>
-        <td class="data">Male</td>
-      </tr>
-    </tbody>
+
   </table>
