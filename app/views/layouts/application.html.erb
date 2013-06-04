@@ -30,6 +30,12 @@
       clear: left;
     }
 
+    table:after {
+      clear:both;
+      content: "";
+      display: table;
+    }
+
     th {
       text-align: right;
       padding: 3px 7px;
@@ -43,6 +49,8 @@
       width: 300px;
       display: inline;;
     }
+
+
   </style>
 </head>
 <body>
@@ -68,7 +76,7 @@
 
   <%= yield %>
 
-  <footer>
+  <footer class="clearfix">
     <%= debug params %>
 </body>
 </html>
