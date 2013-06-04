@@ -1,0 +1,13 @@
+<%= form_for @message, url: user_messages_path(current_user) do |f| %>
+<div>
+  <%= f.label :recipient_id, "To: " %><br />
+  <%= f.collection_select :recipient_id, @user.friends,:id,
+                          :full_name, {selected: @user} %>
+</div>
+<div>
+  <%= f.label :body %><br />
+  <%= f.text_area :body %>
+</div>
+  <%= f.submit "Send" %>
+
+<% end %>
