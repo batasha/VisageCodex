@@ -1,0 +1,35 @@
+<h2>Sign up</h2>
+
+<%= form_for @user do |f| %>
+<%= debug @user.errors.full_messages %>
+  <div><%= f.label :first_name %>
+  <%= f.text_field :first_name %></div>
+
+  <div><%= f.label :last_name %>
+  <%= f.text_field :last_name %></div>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></div>
+
+  <%= f.fields_for(:profile) do |p| %>
+    <div><%= p.label :birthday %>
+    <%= p.date_select :birthday, start_year: Time.now.year - 100, end_year: Time.now.year %></div>
+
+    <div><%= p.label "Male" %>
+    <%= p.radio_button :gender, "male" %>
+    <%= p.label "Female" %>
+      <%= p.radio_button :gender, "female" %></div>
+
+  <% end %>
+
+  <div><%= f.submit "Sign up" %></div>
+
+<% end %>
+
+

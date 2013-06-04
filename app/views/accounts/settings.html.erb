@@ -3,11 +3,11 @@
   <ul>
     <li>
       <%= link_to "Edit my account information",
-          edit_user_registration_path %>
+          edit_user_path(current_user) %>
     </li>
     <li>
       <%= link_to "Update my profile picture",
-          edit_user_path(current_user) %>
+          user_edit_avatar_path(current_user) %>
     </li>
     <li>
       <%= link_to "Update my profile",

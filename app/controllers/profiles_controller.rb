@@ -18,7 +18,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    debugger
     @profile = current_user.profile
   end
 
@@ -26,7 +25,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
 
     if @profile.update_attributes(params[:profile])
-      redirect_o @profile
+      redirect_to settings_account_path
     else
       render :edit
     end

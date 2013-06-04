@@ -4,7 +4,9 @@ VisageCodex::Application.routes.draw do
   root to: 'home#index'
 
   resources :users do
-    resource :user_profile
+    resource :profile
+    get :edit_avatar
+    put :update_avatar
   end
 
   resource :account do
