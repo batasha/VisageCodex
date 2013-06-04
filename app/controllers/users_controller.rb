@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(params[:user])
-    @user.profile.build
+    @user = User.new
+    @user.build_profile
   end
 
   def create
@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update_attributes(params[:user])
-      redirect_to user_url(current_user)
+    if @user.update_attribute(:avatar, params[:avatar])
+      redirect_to settings_account(current_user)
     else
       render :edit
     end

@@ -1,0 +1,12 @@
+<%= form_for @profile do |p| %>
+  <div><%= p.label :birthday %>
+  <%= p.date_select :birthday %></div>
+
+  <div><%= p.label "Male" %>
+  <%= p.radio_button :gender, "male" %>
+  <%= p.label "Female" %>
+    <%= p.radio_button :gender, "female" %></div>
+
+<% end %>
+
+<div><%= f.submit "Update" %></div>

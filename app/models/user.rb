@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
                   :first_name, :last_name, :avatar, :profile
 
-  has_one :profile, class_name: "UserProfile"
+  has_one :profile
   accepts_nested_attributes_for :profile
 
   validates :first_name, :last_name, presence: true
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :avatar, styles: { medium: "200x200>", thumb: "100x100>" }
 end

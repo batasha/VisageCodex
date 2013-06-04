@@ -1,31 +1,32 @@
-class UserProfilesController < ApplicationController
+class ProfilesController < ApplicationController
   def new
-    @user_profile = current_user.build_profile(params[:user_profile])
+    @profile = current_user.build_profile(params[:profile])
   end
 
   def create
-    @user_profile = current_user.build_profile(params[:profile])
+    @profile = current_user.build_profile(params[:profile])
 
-    if @user_profile.save
-      redirect_to @user_profile
+    if @profile.save
+      redirect_to @profile
     else
       render :new
     end
   end
 
   def show
-    @user_profile = current_user.profile
+    @profile = current_user.profile
   end
 
   def edit
-    @user_profile = current_user.profile
+    debugger
+    @profile = current_user.profile
   end
 
   def update
-    @user_profile = current_user.profile
+    @profile = current_user.profile
 
-    if @user_profile.update_attributes(params[:user_profile])
-      redirect_to @user_profile
+    if @profile.update_attributes(params[:profile])
+      redirect_o @profile
     else
       render :edit
     end

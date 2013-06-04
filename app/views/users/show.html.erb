@@ -1,5 +1,5 @@
   <div class="avatar">
-    <img src="http://starcasm.net/wp-content/uploads/2013/03/Tyrion-Lannister-tyrion-lannister-22907618-1280-720_0.jpg" height="200">
+    <%= image_tag @user.avatar.url(:medium) %>
   </div>
   <section class="name-header">
     <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
