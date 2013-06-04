@@ -1,8 +1,8 @@
 <ul>
 <% @users.each do |user| %>
   <li>
-    <a href="<%= user_url(user) %>">
-      <%= "#{user.first_name} #{user.last_name}"%>
+    <%= image_tag user.avatar.url(:thumb) %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_url(user) %>
     </a>
   </li>
 <% end %>
