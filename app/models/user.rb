@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
 
+  has_many :sent_friend_requests, class_name: "FriendRequest",
+           foreign_key: :sender_id
+  has_many :received_friend_requests, class_name: "FriendRequest",
+           foreign_key: :recipient_id
+
   validates :first_name, :last_name, presence: true
   has_attached_file :avatar, styles: { medium: "200x200>", thumb: "100x100>" }
 end

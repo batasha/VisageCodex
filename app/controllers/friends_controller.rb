@@ -17,11 +17,12 @@ class FriendsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
+    @friendship = current_user.friendships.where(friend_id: params[:id]).first
     inverse_friendship = Friendship.where( user_id: @friendship.friend_id,
-                         friend_id: @friendship.user_id )
+                         friend_id: @friendship.user_id ).first
 
     @friendship.destroy
     inverse_friendship.destroy
+    redirect_to user_path(params[:id])
   end
 end

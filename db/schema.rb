@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604170147) do
+ActiveRecord::Schema.define(:version => 20130604182654) do
+
+  create_table "friend_requests", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "recipient_id"
+  end
+
+  add_index "friend_requests", ["sender_id"], :name => "index_friend_requests_on_sender_id"
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"

@@ -5,6 +5,12 @@ VisageCodex::Application.routes.draw do
 
   resources :users do
     resource :profile
+
+    resource :friend_request do
+      put :accept
+      put :reject
+    end
+
     get :edit_avatar
     put :update_avatar
   end

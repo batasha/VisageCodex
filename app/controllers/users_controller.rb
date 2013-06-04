@@ -23,6 +23,12 @@ class UsersController < ApplicationController
   def show
     @user = User.includes(:profile).find(params[:id])
     @profile = @user.profile
+    @sent_friend_request = current_user.sent_friend_requests.where(
+                        recipient_id: @user.id,
+                        status: "pending" ).first
+    @received_friend_request = current_user.received_friend_requests.where(
+                        sender_id: @user.id,
+                        status: "pending" ).first
   end
 
   def edit

@@ -4,6 +4,23 @@
   <section class="name-header">
     <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
     <p>Presiding over the small council ...</p>
+    <div>
+       <% if @sent_friend_request %>
+         <%= button_to "Cancel Friend Request",
+           user_friend_request_path(@user), {method: :delete} %>
+       <% elsif @received_friend_request %>
+       <%= button_to "Accept Friend Request",
+         accept_user_friend_request_path(@user), {method: :put} %>
+       <%= button_to "Reject Friend Request",
+         reject_user_friend_request_path(@user), {method: :put} %>
+
+       <% elsif current_user.friends.include?(@user) %>
+         <%= button_to "Remove Friend",
+           friend_path(@user), {method: :delete} %>
+       <% else %>
+         <%= button_to "Send Friend Request", user_friend_request_path(@user) %>
+       <% end %>
+    </div>
   </section>
   <table class="user-profile">
     <tbody>
