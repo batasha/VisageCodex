@@ -78,4 +78,11 @@ class UsersController < ApplicationController
     @comment = Comment.new
     @sender = current_user
   end
+
+  def news
+    @user = current_user
+    @friends = @user.friends
+    @posts = Post.includes(:comments).where("recipient_id IN ?", @user.friends.pluck(:id))
+    @comment = Comment.new
+  end
 end

@@ -22,6 +22,7 @@ VisageCodex::Application.routes.draw do
     end
 
     get :wall
+    get :news
     get :edit_avatar
     put :update_avatar
   end
