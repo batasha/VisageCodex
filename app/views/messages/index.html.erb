@@ -1,0 +1,35 @@
+<section>
+  <h2>Unread Messages</h2>
+  <ul>
+    <% @unread_messages.reverse.each do |message| %>
+      <li>
+        <%= link_to "From:  #{message.sender.full_name}", 
+          user_message_path(@user, message) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Read Messages</h2>
+  <ul>
+    <% @read_messages.reverse.each do |message| %>
+      <li>
+        <%= link_to "From:  #{message.sender.full_name}", 
+          user_message_path(@user, message) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h2>Unread Messages</h2>
+  <ul>
+    <% @sent_messages.reverse.each do |message| %>
+      <li>
+        <%= link_to "To:  #{message.recipient.full_name}", 
+          user_message_path(@user, message) %>
+      </li>
+    <% end %>
+  </ul>
+</section>

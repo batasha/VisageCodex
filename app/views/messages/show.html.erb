@@ -1,0 +1,11 @@
+  <section>
+    <div>
+      <strong>From: </strong> 
+      <%= link_to @message.sender.full_name, @message.sender %>
+    </div>
+    <div>
+      <strong>To: </strong>
+      <%= link_to @message.recipient.full_name, @message.recipient %>
+    </div>
+  </section>
+  <section><%= @message.body %></section>

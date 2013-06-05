@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
   def index
-    @unread_messages = current_user.messages.where(status: "unread")
-    @read_messages = current_user.messages.where(status: "read")
-    @sent_messages = current_user.sent_messages
+    @user = current_user
+    @unread_messages = @user.messages.where(status: "unread")
+    @read_messages = @user.messages.where(status: "read")
+    @sent_messages = @user.sent_messages
   end
 
   def new
@@ -14,8 +15,7 @@ class MessagesController < ApplicationController
     @user = User.find(params[:user_id])
     @message = current_user.sent_messages.build(params[:message])
     @message.status = "unread"
-    debugger
-
+    
     if @message.save!
       redirect_to user_messages_path
     else
@@ -25,5 +25,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @message.update_attribute(:status, "read") if @message.recipient == current_user
+
   end
 end
