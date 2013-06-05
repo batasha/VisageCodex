@@ -1,9 +1,9 @@
   <div class="profile-avatar">
-    <%= image_tag @user.avatar.url(:medium) %>
+    <%= image_tag @user.avatar.url(:profile) %>
   </div>
   <section class="name-header">
     <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
-    <p>Presiding over the small council ...</p>
+    <p><%= @status %></p>
     <% unless @user == current_user %>
       <div>
          <% if @sent_friend_request %>
@@ -57,5 +57,4 @@
     </tbody>
   </table>
   <table class="family">
-
   </table>

@@ -1,0 +1,30 @@
+<h1>Wall</h1>
+<section class="wall-container">
+  <% @posts.each do |post| %>
+  <article>
+    <div class="clearfix">
+      <%= image_tag @user.avatar.url(:post), class: "post-pic" %>
+      <div class="wall-post-name">
+        <h4><%= post.sender.full_name%></h4>
+        <h5><%= post.created_at %></h5>
+      </div>
+    </div>
+    <p><%= post.text %></p>
+    <hr>
+    <% post.comments.each do |comment| %>
+      <article>
+        <div class="clearfix">
+          <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>
+          <div class="wall-post-name">
+            <h5><%= comment.user.full_name%><br />
+                <%= comment.created_at %></h5>
+          </div>
+      </div>
+        <p><%= comment.text %></p>
+      </article>
+    <% end %>
+  </article>
+  <%= render partial: "comments/new", locals: {post: post} %>
+  <hr>
+  <% end %>
+</section>

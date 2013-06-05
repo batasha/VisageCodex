@@ -1,0 +1,71 @@
+body {
+  font-family: Geneva, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family: fantasy;
+}
+
+nav ul li {
+  display: inline;
+  margin: 20px;
+  height: 20px;
+}
+
+.profile-avatar {
+  margin: 40px;
+  float: left;
+}
+
+.name-header {
+  margin: 50px;
+  height: 200px;
+  clear: none;
+}
+
+table {
+  width: 300px;
+  clear: left;
+}
+
+table:after {
+  clear:both;
+  content: "";
+  display: table;
+}
+
+th {
+  text-align: right;
+  padding: 3px 7px;
+}
+
+.user-profile {
+  float: left;
+}
+
+.family {
+  width: 300px;
+  display: inline;;
+}
+
+.wall-container {
+  width: 500px;
+  margin: 30px;
+}
+
+.post-pic {
+  display: block;
+  float: left;
+  margin: 10px;
+}
+
+.wall-post-name {
+  display: block;
+  float: left;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

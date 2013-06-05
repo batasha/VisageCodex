@@ -5,53 +5,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
-  <style type="text/css">
-
-    nav ul li {
-      display: inline;
-      margin: 20px;
-      height: 20px;
-    }
-
-    .profile-avatar {
-      margin: 40px;
-      float: left;
-    }
-
-    .name-header {
-      margin: 50px;
-      height: 200px;
-      clear: none;
-    }
-
-    table {
-      width: 300px;
-      clear: left;
-    }
-
-    table:after {
-      clear:both;
-      content: "";
-      display: table;
-    }
-
-    th {
-      text-align: right;
-      padding: 3px 7px;
-    }
-
-    .user-profile {
-      float: left;
-    }
-
-    .family {
-      width: 300px;
-      display: inline;;
-    }
-
-
-  </style>
 </head>
 <body>
   <% if user_signed_in? %>
@@ -61,7 +14,7 @@
         <li><%= link_to "Profile", user_path(current_user) %></li>
         <li><%= link_to "Friends", friends_path %></li>
         <li><a href="#">Photos</a></li>
-        <li><a href="#">Wall</a></li>
+        <li><%= link_to "Wall", user_wall_path(@user || current_user) %></li>
         <li><a href="#">News</a></li>
         <li><%= link_to "New Post", new_user_post_path(current_user)%></li>
         <li><%= link_to "Account Settings", settings_account_path %></li>

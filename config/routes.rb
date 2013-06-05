@@ -12,8 +12,11 @@ VisageCodex::Application.routes.draw do
     end
 
     resources :messages
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
 
+    get :wall
     get :edit_avatar
     put :update_avatar
   end

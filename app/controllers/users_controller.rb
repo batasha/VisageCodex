@@ -29,6 +29,10 @@ class UsersController < ApplicationController
     @received_friend_request = current_user.received_friend_requests.where(
                         sender_id: @user.id,
                         status: "pending" ).first
+
+    current_status = @user.posts.where(recipient_id: @user.id).last
+
+    @status = current_status ? current_status.text : ""
   end
 
   def edit
@@ -65,5 +69,12 @@ class UsersController < ApplicationController
     @user = current_user
     @user.destroy
     redirect_to new_user_path
+  end
+
+  def wall
+    @user = User.find(params[:user_id])
+    @posts = Post.includes(:comments).where(recipient_id: @user.id)
+    @comment = Comment.new
+    @sender = current_user
   end
 end

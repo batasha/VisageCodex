@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name, :avatar, :profile, :profile_attributes, :posts
+                  :first_name, :last_name, :avatar, :profile,
+                  :profile_attributes, :posts, :comments
 
   has_one :profile
   accepts_nested_attributes_for :profile
@@ -26,8 +27,13 @@ class User < ActiveRecord::Base
   has_many :posts, class_name: "Post", foreign_key: :sender_id
   has_many :wall_posts, class_name: "Post", foreign_key: :recipient_id
 
+  has_many :comments
+  has_many :received_comments, through: :posts
+
   validates :first_name, :last_name, presence: true
-  has_attached_file :avatar, styles: { medium: "200x200>", thumb: "50x50>" }
+  has_attached_file :avatar, styles: { profile: "200x200>",
+                                       post: "100x100>",
+                                       comment: "50x50>" }
 
   def full_name
     "#{first_name} #{last_name}"
