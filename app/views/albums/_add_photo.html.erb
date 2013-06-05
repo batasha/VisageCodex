@@ -1,0 +1,14 @@
+<section>
+  <h4>Add New Photo</h4>
+  <%= form_for @photo, url: user_album_photos_path(@user, @album) do |f| %>
+    <div>
+      <%= f.label :image_file, "Attach photo" %>
+      <%= f.file_field :image_file %>
+
+      <%= f.label :album_id, "Select Album" %>
+      <%= f.collection_select :album_id, @user.albums, :id,
+                              :name, {selected: @user.albums.where(name:"Default").first} %>
+    </div>
+    <%= f.submit "Upload Photo" %>
+  <% end %>
+</section>

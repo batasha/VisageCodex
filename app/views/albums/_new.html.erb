@@ -1,0 +1,8 @@
+<section>
+  <h4>Add New Album</h4>
+  <%= form_for @album, url: user_albums_path(@user) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create Album" %>
+  <% end %>
+</section>

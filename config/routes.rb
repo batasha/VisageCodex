@@ -17,8 +17,9 @@ VisageCodex::Application.routes.draw do
       resources :comments
     end
 
-    resources :albums
-    resources :photos
+    resources :albums do
+      resources :photos
+    end
 
     get :wall
     get :edit_avatar

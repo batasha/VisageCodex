@@ -6,12 +6,15 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @user.albums.create(params[:album])
+    redirect_to user_albums_path(@user)
   end
 
   def show
     @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
     @photos = @album.photos
+    @photo = Photo.new
   end
 end

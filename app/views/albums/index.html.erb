@@ -1,3 +1,5 @@
+<%= render partial: "new" if @user == current_user %>
+
 <ul>
 <% @albums.each do |album| %>
   <li>
