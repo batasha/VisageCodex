@@ -1,0 +1,7 @@
+<%= form_for @post, url: user_posts_path(@recipient) do |f| %>
+  <div>
+    <%= f.label :text, "What are you doing now?" %><br />
+    <%= f.text_field :text %>
+  </div>
+  <%= f.submit "Update Status"%>
+<% end %>

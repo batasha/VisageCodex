@@ -7,15 +7,17 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @message = @user.sent_messages.build
+    @user = User.find(params[:user_id])
+    @message = current_user.sent_messages.build
   end
 
   def create
+
     @user = User.find(params[:user_id])
     @message = current_user.sent_messages.build(params[:message])
+    @message.recipient = @user
     @message.status = "unread"
-    
+
     if @message.save!
       redirect_to user_messages_path
     else

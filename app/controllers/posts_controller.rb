@@ -1,17 +1,18 @@
 class PostsController < ApplicationController
   def new
-    @user = current_user
-    @wall_id = params[:user_id]
-    @post = @user.posts.build
+    @sender = current_user
+    @recipient = User.find(params[:user_id])
+    @post = @sender.posts.build
   end
 
   def create
-    @user = current_user
-    @wall_id = params[:user_id]
-    @post = @user.posts.build(params[:post])
+    @sender = current_user
+    @recipient = User.find(params[:user_id])
+    @post = @sender.posts.build(params[:post])
+    @post.recipient_id = @recipient.id
 
     if @post.save
-      redirect_to @wall_id
+      redirect_to @recipient
     else
       render :new
     end

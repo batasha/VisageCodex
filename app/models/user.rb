@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
   has_many :messages, class_name: "Message", foreign_key: :recipient_id
   has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
 
-  has_many :posts
-  has_many :wall_posts, class_name: "Post", foreign_key: :wall_id
+  has_many :posts, class_name: "Post", foreign_key: :sender_id
+  has_many :wall_posts, class_name: "Post", foreign_key: :recipient_id
 
   validates :first_name, :last_name, presence: true
   has_attached_file :avatar, styles: { medium: "200x200>", thumb: "50x50>" }
