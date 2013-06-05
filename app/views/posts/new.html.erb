@@ -3,5 +3,11 @@
     <%= f.label :text, "What are you doing now?" %><br />
     <%= f.text_field :text %>
   </div>
+  <div>
+    <%= f.fields_for :photo, html: { multipart: true } do |p| %>
+      <%= p.label :image_file, "Attach photo" %><br />
+      <%= p.file_field :image_file %>
+    <% end %>
+  </div>
   <%= f.submit "Update Status"%>
 <% end %>

@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @sender = current_user
     @recipient = User.find(params[:user_id])
     @post = @sender.posts.build
+    @photo = @post.build_photo
   end
 
   def create

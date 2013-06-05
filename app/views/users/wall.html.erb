@@ -1,6 +1,6 @@
 <h1>Wall</h1>
 <section class="wall-container">
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
   <article>
     <div class="clearfix">
       <%= image_tag @user.avatar.url(:post), class: "post-pic" %>
@@ -9,9 +9,10 @@
         <h5><%= post.created_at %></h5>
       </div>
     </div>
+    <p><%= image_tag post.photo.image_file.url(:small) if post.photo %></p>
     <p><%= post.text %></p>
     <hr>
-    <% post.comments.each do |comment| %>
+    <% post.comments.reverse.each do |comment| %>
       <article>
         <div class="clearfix">
           <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>

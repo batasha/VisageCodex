@@ -1,7 +1,9 @@
 class AddAlbums < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    create_table :albums do |t|
+      t.integer :user_id
+      t.string :name
+      t.timestamps
+    end
   end
 end

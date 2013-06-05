@@ -30,10 +30,15 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :received_comments, through: :posts
 
+  has_many :albums
+  has_many :photos, through: :albums
+
   validates :first_name, :last_name, presence: true
   has_attached_file :avatar, styles: { profile: "200x200>",
                                        post: "100x100>",
                                        comment: "50x50>" }
+
+
 
   def full_name
     "#{first_name} #{last_name}"

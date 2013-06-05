@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605141930) do
+ActiveRecord::Schema.define(:version => 20130605191009) do
+
+  create_table "albums", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -55,6 +62,17 @@ ActiveRecord::Schema.define(:version => 20130605141930) do
 
   add_index "messages", ["recipient_id"], :name => "index_messages_on_recipient_id"
   add_index "messages", ["sender_id"], :name => "index_messages_on_sender_id"
+
+  create_table "photos", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "album_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "image_file_file_name"
+    t.string   "image_file_content_type"
+    t.integer  "image_file_file_size"
+    t.datetime "image_file_updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "text"
