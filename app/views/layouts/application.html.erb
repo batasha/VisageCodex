@@ -13,7 +13,7 @@
       <ul>
         <li><%= link_to "Profile", user_path(current_user) %></li>
         <li><%= link_to "Friends", friends_path %></li>
-        <li><a href="#">Photos</a></li>
+        <li><%= link_to "Photos", user_albums_path(current_user)%></li>
         <li><%= link_to "Wall", user_wall_path(@user || current_user) %></li>
         <li><a href="#">News</a></li>
         <li><%= link_to "New Post", new_user_post_path(current_user)%></li>

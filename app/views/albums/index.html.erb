@@ -1,0 +1,10 @@
+<ul>
+<% @albums.each do |album| %>
+  <li>
+    <% unless album.photos.empty? %>
+      <%= image_tag album.photos.first.image_file.url(:thumb) %>
+    <% end %>
+    <%= link_to "#{album.name}", user_album_path(@user, album) %>
+  </li>
+<% end %>
+</ul>

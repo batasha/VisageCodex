@@ -1,0 +1,7 @@
+<div class="album">
+  <ul>
+    <% @photos.each do |photo| %>
+      <li><%= image_tag photo.image_file.url(:large) %></li>
+    <% end %>
+  </ul>
+</div>

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.create_album(name: "Default")
+      @user.albums.create(name: "Default")
       sign_in @user
       redirect_to @user
     else
