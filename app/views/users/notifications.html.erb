@@ -1,0 +1,12 @@
+<section>
+  <h3>Notifications</h3>
+  <ul>
+    <li>
+      <%= link_to "#{message_count} Unread Messages",
+          user_messages_path(current_user) %>
+    </li>
+    <li>
+      <%= link_to "#{friend_request_count} Pending Friend Requests",
+          "user_friend_requests_path(current_user)" %>
+    </li>
+  </ul>

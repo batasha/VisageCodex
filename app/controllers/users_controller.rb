@@ -85,4 +85,8 @@ class UsersController < ApplicationController
     @posts = @user.news_posts
     @comment = Comment.new
   end
+
+  def notifications
+    @user = current_user
+  end
 end

@@ -15,8 +15,10 @@
         <li><%= link_to "Friends", friends_path %></li>
         <li><%= link_to "Photos", user_albums_path(@user || current_user)%></li>
         <li><%= link_to "Wall", user_wall_path(@user || current_user) %></li>
-        <li><a href="#">News</a></li>
+        <li><%= link_to "News Feed", user_news_path(current_user) %></li>
         <li><%= link_to "New Post", new_user_post_path(current_user)%></li>
+        <li><%= link_to "Notifications (notifications_count)",
+             user_notifications_path(current_user) %></li>
         <li><%= link_to "Account Settings", settings_account_path %></li>
         <li><%= button_to "Sign Out", destroy_user_session_path, {method: :delete} %></li>
       </ul>
