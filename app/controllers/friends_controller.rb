@@ -25,4 +25,9 @@ class FriendsController < ApplicationController
     inverse_friendship.destroy
     redirect_to user_path(params[:id])
   end
+
+  def requests
+    @user = current_user
+    @requests = @user.received_friend_requests.where(status: "pending")
+  end
 end

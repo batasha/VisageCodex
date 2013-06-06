@@ -1,0 +1,15 @@
+<section>
+  <h3>Pending Friend Requests</h3>
+  <ul>
+    <% @requests.each do |request| %>
+      <li>
+        <%= image_tag request.sender.avatar.url(:post), class: "post-pic" %>
+        <%= request.sender.full_name %>
+        <%= button_to "Accept Friend Request",
+          accept_user_friend_request_path(request.sender), {method: :put} %>
+        <%= button_to "Reject Friend Request",
+          reject_user_friend_request_path(request.sender), {method: :put} %>
+      </li>
+    <% end %>
+  </ul>
+</section>
