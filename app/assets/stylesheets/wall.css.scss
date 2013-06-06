@@ -92,12 +92,28 @@ hr {
   font-size: small;
 }
 
-comment > header {
-
+.comment > header {
+  padding: 20px;
 }
 
-.wall-comment-info {
+.wall-comment-content {
   float: left;
   padding: 15px 0 0 10px;
+  width: 400px;
+}
+
+.wall-comment-content em {
+  font-size: medium;
+  font-weight: bold;
+  font-style: normal;
+  padding: 0 5px 0 0;
+}
+
+.wall-comment-content p {
+  padding: 0 0 5px 0;
+}
+
+.wall-comment-footer > time, em, div {
+  display: inline;
 }
 

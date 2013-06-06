@@ -6,7 +6,7 @@
       <%= image_tag post.sender.avatar.url(:post), class: "post-pic" %>
       <div class="wall-post-name">
         <h4><%= post.sender.full_name%></h4>
-        <h5><%= post.created_at %></h5>
+        <h5><%= time_ago_in_words(post.created_at) %> ago</h5>
       </div>
     </div>
     <p><%= image_tag post.photo.image_file.url(:small) if post.photo %></p>
@@ -26,7 +26,7 @@
           <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>
           <div class="wall-post-name">
             <h5><%= comment.user.full_name%><br />
-                <%= comment.created_at %></h5>
+                <%= time_ago_in_words(comment.created_at) %> ago</h5>
           </div>
       </div>
         <p><%= comment.text %></p>
