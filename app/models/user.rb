@@ -26,8 +26,9 @@ class User < ActiveRecord::Base
 
   has_many :posts, class_name: "Post", foreign_key: :sender_id
   has_many :wall_posts, class_name: "Post", foreign_key: :recipient_id
+  has_many :news_posts, through: :friends, source: :posts
 
-  has_many :comments
+  has_many :comments 
   has_many :received_comments, through: :posts
 
   has_many :albums

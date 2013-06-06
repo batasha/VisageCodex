@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @recipient = User.find(params[:user_id])
     @post = @sender.posts.build(params[:post])
     @post.recipient_id = @recipient.id
-
+    
     if @post.save
       redirect_to @recipient
     else

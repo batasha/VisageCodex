@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   def news
     @user = current_user
     @friends = @user.friends
-    @posts = Post.includes(:comments).where("recipient_id IN ?", @user.friends.pluck(:id))
+    @posts = @user.news_posts
     @comment = Comment.new
   end
 end
