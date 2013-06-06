@@ -74,7 +74,7 @@ class UsersController < ApplicationController
 
   def wall
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:comments).where(recipient_id: @user.id)
+    @posts = @user.posts.includes(:comments)
     @comment = Comment.new
     @sender = current_user
   end
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   def news
     @user = current_user
     @friends = @user.friends
-    @posts = @user.news_posts
+    @posts = @user.news_posts.includes(:comments)
     @comment = Comment.new
   end
 end

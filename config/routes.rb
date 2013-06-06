@@ -14,7 +14,10 @@ VisageCodex::Application.routes.draw do
     resources :messages
     resources :posts do
       resource :photo, only: [:new, :create]
-      resources :comments
+      resource :like, only: [:create, :destroy]
+      resources :comments do
+        resource :like, only: [:create, :destroy]
+      end
     end
 
     resources :albums do

@@ -1,0 +1,103 @@
+/* RESET */
+
+html, body, div, article, section, a, h1, h4, h5, p, time, img, {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* GLOBAL STYLES */
+
+body {
+  font-family: Palatino, "Palatino Linotype", Baskerville, "Hoefler Text",
+               Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+  font-family: Papyrus, fantasy;
+  font-size: xx-large;
+}
+
+article, section, time {
+  display: block;
+}
+
+hr {
+  margin: 0px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* WALL */
+
+.wall-container {
+  margin: 50px auto;
+  width: 500px;
+  padding: 10px;
+  border-radius: 1em;
+  background: gainsboro;
+}
+
+.post {
+  background: lightyellow;
+  font-size: large;
+}
+
+.post > header {
+  padding: 20px;
+}
+
+.post-pic {
+  border: 2px solid grey;
+  float: left;
+}
+
+.wall-post-info {
+  float: left;
+  padding: 25px 0 0 20px;
+}
+
+.wall-post-info > h4 {
+  font-weight: bold;
+  padding: 0 0 10px 0;
+}
+
+.wall-post-content {
+  padding: 0 20px 0 20px;
+}
+
+.post-attachment {
+  padding: 0 0 15px 0;
+}
+
+.post-likes {
+  padding: 20px 0;
+  display: block;
+}
+
+.like-button {
+  float: right;
+  padding: 0 250px 0 0 ;
+}
+
+.comment {
+  background: lightyellow;
+  font-size: small;
+}
+
+comment > header {
+
+}
+
+.wall-comment-info {
+  float: left;
+  padding: 15px 0 0 10px;
+}
+
