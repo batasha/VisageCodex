@@ -42,8 +42,10 @@
 
           <li><%= link_to "Account Settings", settings_account_path %></li>
         </ul>
-
-
+        <div class="sign-out">
+          <%= button_to "Sign Out", destroy_user_session_path,
+              {method: :delete} %>
+        </div>
       </nav>
     <% end %>
   </header>
