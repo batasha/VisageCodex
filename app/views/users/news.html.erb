@@ -1,47 +1,93 @@
-<h1>News Feed</h1>
 <section class="wall-container">
+  <h1>News Feed</h1>
+
   <% @posts.reverse.each do |post| %>
-  <article>
-    <div class="clearfix">
+  <article class="post">
+    <header class="clearfix">
+      
       <%= image_tag post.sender.avatar.url(:post), class: "post-pic" %>
-      <div class="wall-post-name">
+      
+      <div class="wall-post-info">
         <h4><%= post.sender.full_name%></h4>
-        <h5><%= time_ago_in_words(post.created_at) %> ago</h5>
+        <h5><%= time_ago_in_words(post.created_at) %> ago</time>
       </div>
-    </div>
-    <p><%= image_tag post.photo.image_file.url(:small) if post.photo %></p>
-    <p><%= post.text %></p>
-    <%= post.likes.count %> people liked this
-    <% if post.likes.where(user_id: current_user).empty? %>
-      <%= button_to "Like",
-        user_post_like_path(@user, post), {method: :post} %>
-    <% else %>
-      <%= button_to "Unlike",
-        user_post_like_path(@user, post), {method: :delete} %>
-    <% end %>
-    <hr>
-    <% post.comments.reverse.each do |comment| %>
-      <article>
-        <div class="clearfix">
-          <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>
-          <div class="wall-post-name">
-            <h5><%= comment.user.full_name%><br />
-                <%= time_ago_in_words(comment.created_at) %> ago</h5>
-          </div>
-      </div>
-        <p><%= comment.text %></p>
-        <%= comment.likes.count %> people liked this
-        <% if comment.likes.where(user_id: current_user).empty? %>
+
+    </header>
+    <div class="wall-post-content">
+      
+      <% if post.photo %>
+        <p class="post-attachment">
+          <%= image_tag post.photo.image_file.url(:small) %>
+        </p>
+      <% end %>
+
+      <p><%= post.text %></p>
+
+      <div class="post-likes clearfix">
+        <em><%= post.likes.count %> people liked this</em>
+
+        <% if post.likes.where(user_id: current_user).empty? %>
           <%= button_to "Like",
-            user_post_comment_like_path(@user, post, comment), {method: :post} %>
+            user_post_like_path(@user, post), {method: :post} %>
+        
         <% else %>
           <%= button_to "Unlike",
-            user_post_comment_like_path(@user, post, comment), {method: :delete} %>
+            user_post_like_path(@user, post), {method: :delete} %>
         <% end %>
+      </div>
+    </div>
+    <hr>
+
+    <% post.comments.reverse.each do |comment| %>
+
+      <article class="comment">
+
+        <div class="comment-box clearfix">
+
+            <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>
+
+            <div class="wall-comment-content">
+              <p>
+                <em>
+                  <%= link_to comment.user.full_name,user_url(comment.user) %>
+                </em>
+
+                <%= comment.text %>
+              </p>
+
+              <div class="wall-comment-footer">
+                <ul>
+                  <li>
+                    <time>
+                      <%= time_ago_in_words(comment.created_at) %> ago
+                    </time>
+                  </li>
+                  <li><em><%= comment.likes.count %> people liked this</em></li>
+                  <li>
+                    <div class="like-button">
+                      <% if comment.likes.where(user_id: current_user).empty? %>
+                        <%= button_to "Like",
+                          user_post_comment_like_path(@user, post, comment),
+                          {method: :post} %>
+
+                      <% else %>
+                        <%= button_to "Unlike",
+                          user_post_comment_like_path(@user, post, comment),
+                          {method: :delete} %>
+                      <% end %>
+                    </div>
+                  </li>
+              </div>
+            </div>
+
       </article>
+
     <% end %>
   </article>
+
+  <hr>
   <%= render partial: "comments/new", locals: {post: post} %>
   <hr>
+  
   <% end %>
 </section>

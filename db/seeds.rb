@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+arya = User.create(
+  first_name: "Arya",
+  last_name: "Stark",
+  password: "qweasd123",
+  email: "arya@stark.com",
+  profile: Profile.create({gender: "female"})
+ )
+arya.avatar = File.new(File.join('public/images/arya-stark.jpg'))
+arya.save!
