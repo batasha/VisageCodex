@@ -1,12 +1,12 @@
 /* RESET */
 
-html, body, div, article, section, a, h1, h4, h5, p, time, img, {
+html, body, div, article, section, a, h1, h4, h5, p, time, img, ul{
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: middle;
 }
 
 /* GLOBAL STYLES */
@@ -82,7 +82,7 @@ hr {
   display: block;
 }
 
-.like-button {
+.post-likes > .like-button {
   float: right;
   padding: 0 250px 0 0 ;
 }
@@ -92,20 +92,21 @@ hr {
   font-size: small;
 }
 
-.comment > header {
+.comment-box {
   padding: 20px;
+}
+
+.comment .post-pic {
+
 }
 
 .wall-comment-content {
   float: left;
   padding: 15px 0 0 10px;
-  width: 400px;
+  width: 380px;
 }
 
 .wall-comment-content em {
-  font-size: medium;
-  font-weight: bold;
-  font-style: normal;
   padding: 0 5px 0 0;
 }
 
@@ -113,7 +114,18 @@ hr {
   padding: 0 0 5px 0;
 }
 
-.wall-comment-footer > time, em, div {
-  display: inline;
+.wall-comment-footer li {
+  list-style: none;
+  float: left;
+  padding: 5px 10px 0 0;
 }
 
+.wall-comment-footer > ul > li > .like-button > .button_to {
+  float: left;
+}
+
+.comment-form {
+  background: lightyellow;
+  font-size: large;
+  padding: 20px;
+}

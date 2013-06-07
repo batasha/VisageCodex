@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if @comment.save!
       redirect_to @recipient
     else
-      render :new
+      render :back
     end
   end
 end

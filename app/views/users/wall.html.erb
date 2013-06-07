@@ -45,7 +45,7 @@
       <% post.comments.reverse.each do |comment| %>
 
         <article class="comment">
-          <div class="clearfix">
+          <div class="comment-box clearfix">
 
             <%= image_tag @user.avatar.url(:comment), class: "post-pic" %>
 
@@ -59,22 +59,27 @@
               </p>
 
               <div class="wall-comment-footer">
+                <ul>
+                  <li>
+                    <time>
+                      <%= time_ago_in_words(comment.created_at) %> ago
+                    </time>
+                  </li>
+                  <li><em><%= comment.likes.count %> people liked this</em></li>
+                  <li>
+                    <div class="like-button">
+                      <% if comment.likes.where(user_id: current_user).empty? %>
+                        <%= button_to "Like",
+                          user_post_comment_like_path(@user, post, comment),
+                          {method: :post} %>
 
-                <time><%= time_ago_in_words(comment.created_at) %> ago</time>
-                <em><%= comment.likes.count %> people liked this</em>
-
-                <div class="like-button">
-                  <% if comment.likes.where(user_id: current_user).empty? %>
-                    <%= button_to "Like",
-                      user_post_comment_like_path(@user, post, comment),
-                      {method: :post} %>
-
-                  <% else %>
-                    <%= button_to "Unlike",
-                      user_post_comment_like_path(@user, post, comment),
-                      {method: :delete} %>
-                  <% end %>
-                </div>
+                      <% else %>
+                        <%= button_to "Unlike",
+                          user_post_comment_like_path(@user, post, comment),
+                          {method: :delete} %>
+                      <% end %>
+                    </div>
+                  </li>
               </div>
             </div>
 

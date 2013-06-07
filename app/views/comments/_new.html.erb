@@ -1,8 +1,9 @@
-
-<%= form_for @comment, url: user_post_comments_path(@user.id, post.id) do |f| %>
-    <div>
-      <%= f.label :text, "Add comments:" %><br />
-      <%= f.text_field :text %>
-    </div>
-    <%= f.submit "Post Comment"%>
-<% end %>
+<div class="comment-form">
+  <%= form_for @comment, url: user_post_comments_path(@user.id, post.id) do |f| %>
+      <div>
+        <%= f.label :text, "Add comments:" %><br />
+        <%= f.text_field :text %>
+      </div>
+      <%= f.submit "Post Comment"%>
+  <% end %>
+</div>
