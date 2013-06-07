@@ -5,7 +5,13 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development do
+  gem 'sqlite3'
+  gem 'letter_opener'
+end
+
+gem 'pg', group: :production
+
 gem 'bootstrap-sass'
 
 # Gems used only for assets and not required
@@ -38,7 +44,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'debugger'
 gem 'pry-rails'
 gem 'devise'
-gem 'letter_opener', group: :development
 gem 'paperclip'
 gem "aws-sdk"
 gem 'better_errors'
