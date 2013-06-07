@@ -1,60 +1,98 @@
-  <div class="profile-avatar">
-    <%= image_tag @user.avatar.url(:profile) %>
-  </div>
-  <section class="name-header">
+<section class="profile-page">
+  <header class="profile-header clearfix">
+
+    <div class="profile-avatar">
+      <%= image_tag @user.avatar.url(:profile) %>
+    </div>
+
     <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
-    <p><%= @status %></p>
+    <h3><%= @status %></h3>
+
     <% unless @user == current_user %>
-      <div>
+      <div class="friend">
+
          <% if @sent_friend_request %>
-           <%= button_to "Cancel Friend Request",
-             user_friend_request_path(@user), {method: :delete} %>
+           <div class="friend-request-sent">
+             <%= button_to "Cancel Friend Request",
+                 user_friend_request_path(@user), {method: :delete} %>
+           </div>
+
          <% elsif @received_friend_request %>
-         <%= button_to "Accept Friend Request",
-           accept_user_friend_request_path(@user), {method: :put} %>
-         <%= button_to "Reject Friend Request",
-           reject_user_friend_request_path(@user), {method: :put} %>
+           <div class="friend-request-received">
+
+             <div class="friend-request-accept">
+                <%= button_to "Accept Friend Request",
+                    accept_user_friend_request_path(@user), {method: :put} %>
+             </div>
+
+             <div class="friend-request-reject">
+               <%= button_to "Reject Friend Request",
+                   reject_user_friend_request_path(@user), {method: :put} %>
+             </div>
+           </div>
 
          <% elsif current_user.friends.include?(@user) %>
-           <%= button_to "Remove Friend",
-             friend_path(@user), {method: :delete} %>
+           <div class="friend-remove">
+             <%= button_to "Remove Friend",
+                 friend_path(@user), {method: :delete} %>
+           </div>
+
          <% else %>
-           <%= button_to "Send Friend Request", user_friend_request_path(@user) %>
+           <div class="friend-request-send">
+             <%= button_to "Send Friend Request",
+                 user_friend_request_path(@user) %>
+           </div>
+
          <% end %>
       </div>
-      <div>
-        <%= button_to "Send Message", new_user_message_path(@user), {method: :get}%>
+
+      <div class="message-button">
+        <%= button_to "Send Message", new_user_message_path(@user),
+            {method: :get}%>
       </div>
-      <div>
+
+      <div class="message-button">
         <%= link_to "Post on Wall", new_user_post_path(@user) %>
       </div>
+
     <% end %>
-  </section>
-  <table class="user-profile">
-    <tbody>
-      <tr>
-        <th class="label">First Name</th>
-        <td class="data"><%= @user.first_name %></td>
-      </tr>
-      <tr>
-        <th class="label">Last Name</th>
-        <td class="data"><%= @user.last_name %></td>
-      </tr>
+  </header>
+
+  <dl class="user-profile">
+
+      <div class="first-name clearfix">
+        <dt class="label">First Name</dt>
+        <dd><%= @user.first_name %></dd>
+      </div>
+      <div class="last-name clearfix">
+        <dt class="label">Last Name</dt>
+        <dd><%= @user.last_name %></dd>
+      </div>
+
       <% if @profile %>
-        <tr>
-          <th class="label">Hometown</th>
-          <td class="data"><%= @profile.location %></td>
-        </tr>
-        <tr>
-          <th class="label">Gender</th>
-          <td class="data"><%= @profile.gender.capitalize %></td>
-        </tr>
-        <tr>
-          <th class="label">Birthday</th>
-          <td class="data"><%= @profile.birthday %></td>
-        </tr>
+        <div class="hometown clearfix">
+          <dt class="label">Hometown</dt>
+          <dd><%= @profile.location %></dd>
+        </div>
+        <div class="gender clearfix">
+          <dt class="label">Gender</dt>
+          <dd><%= @profile.gender.capitalize %></dd>
+        </div>
+        <div class="birthday clearfix">
+          <dt class="label">Birthday</dt>
+          <dd><%= @profile.birthday %></dd>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <table class="family">
-  </table>
+
+  </dl>
+
+</section>
+
+<script>
+
+$(document).ready(function(){
+
+
+});
+
+</script

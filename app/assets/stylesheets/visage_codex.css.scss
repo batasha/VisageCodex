@@ -1,66 +1,93 @@
-html, body, div, article, section, a, h1, p, time, img {
+/* RESET */
+
+html, body, div, article, section, a, dl, h1, h2, h3, h4, h5, p, time, img, ul{
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: middle;
 }
 
 
+/* GLOBAL STYLES */
+
 body {
-  font-family: Verdana, Geneva, Helvetica, sans-serif;
+  font-family: Palatino, "Palatino Linotype", Baskerville, "Hoefler Text",
+               Georgia, "Times New Roman", Times, serif;
 }
 
 h1 {
-  font-family: fantasy;
+  font-family: Papyrus, fantasy;
+  font-size: xx-large;
+  color: darkgreen;
+  padding: 20px;
 }
 
-nav ul li {
-  display: inline;
-  margin: 20px;
-  height: 20px;
+article, section, time {
+  display: block;
 }
 
+hr {
+  margin: 0px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  color: darkgreen;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  background: gainsboro;
+}
+.nav-bar > li {
+  position: relative;
+  float: left;
+  padding: 0 20px 20px 20px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  border-bottom: 1px solid grey;
+}
+
+.dropdown > li {
+  padding: 5px 10px;
+}
+
+.nav-bar > li:hover > .dropdown {
+  background: gainsboro;
+  display: block;
+  width: 225px;
+  border-radius: 1em;
+}
 
 nav > ul > li > .button_to {
   float: right;
-  height: 20px;
+  margin: 0;
 }
 
-.profile-avatar {
-  margin: 40px;
-  float: left;
+.notice, .alert {
+  display: none;
 }
 
-.name-header {
-  margin: 50px;
-  height: 200px;
-  clear: none;
+.content {
+  width: 800px;
+  margin: auto;
+  padding: 40px 0;
 }
-
-table {
-  width: 300px;
-  clear: left;
-}
-
-table:after {
-  clear:both;
-  content: "";
-  display: table;
-}
-
-th {
-  text-align: right;
-  padding: 3px 7px;
-}
-
-.user-profile {
-  float: left;
-}
-
-.family {
-  width: 300px;
-  display: inline;;
-}
-

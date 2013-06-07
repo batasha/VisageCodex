@@ -6,32 +6,58 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <% if user_signed_in? %>
-    <nav>
-      <h1>VisageCodex</h1>
-      <ul>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li><%= link_to "Friends", friends_path %></li>
-        <li><%= link_to "Photos", user_albums_path(@user || current_user)%></li>
-        <li><%= link_to "Wall", user_wall_path(@user || current_user) %></li>
-        <li><%= link_to "News Feed", user_news_path(current_user) %></li>
-        <li><%= link_to "New Post", new_user_post_path(current_user)%></li>
-        <li><%= link_to "Notifications (#{notifications_count})",
-             user_notifications_path(current_user) %></li>
-        <li><%= link_to "Account Settings", settings_account_path %></li>
-        <li><%= button_to "Sign Out", destroy_user_session_path, {method: :delete} %></li>
-      </ul>
-    </nav>
-  <% end %>
+  <header class="header clearfix">
+    <h1>VisageCodex</h1>
+
+    <% if user_signed_in? %>
+      <nav>
+        <ul class="nav-bar clearfix">
+
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Friends", friends_path %></li>
+
+          <li>
+            <%= link_to "Photos", user_albums_path(@user || current_user)%>
+          </li>
+
+          <li><%= link_to "Wall", user_wall_path(@user || current_user) %></li>
+          <li><%= link_to "News Feed", user_news_path(current_user) %></li>
+          <li><%= link_to "New Post", new_user_post_path(current_user)%></li>
+
+          <li>
+            <span><%= "Notifications (#{notifications_count})" %></span>
+            <ul class="dropdown">
+              <li>
+                <%= link_to "#{message_count} Unread Messages",
+                    user_messages_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to "#{friend_request_count} Pending Friend Requests",
+                    requests_friends_path %>
+              </li>
+            </ul>
+          </li>
+
+          <li><%= link_to "Account Settings", settings_account_path %></li>
+        </ul>
+
+
+      </nav>
+    <% end %>
+  </header>
+
   <header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </header>
 
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
 
   <footer class="clearfix">
-    <%= debug params %>
+    <!-- <%= debug params %> -->
 </body>
 </html>

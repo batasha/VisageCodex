@@ -1,39 +1,3 @@
-/* RESET */
-
-html, body, div, article, section, a, h1, h4, h5, p, time, img, ul{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: middle;
-}
-
-/* GLOBAL STYLES */
-
-body {
-  font-family: Palatino, "Palatino Linotype", Baskerville, "Hoefler Text",
-               Georgia, "Times New Roman", Times, serif;
-}
-
-h1 {
-  font-family: Papyrus, fantasy;
-  font-size: xx-large;
-}
-
-article, section, time {
-  display: block;
-}
-
-hr {
-  margin: 0px;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* WALL */
 

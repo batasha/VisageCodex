@@ -1,0 +1,33 @@
+.profile-page {
+  padding: 20px;
+}
+
+.profile-header > h1 {
+  padding: 0;
+}
+
+.profile-avatar {
+  float: left;
+  padding: 0 40px 40px 0;
+}
+
+.friend {
+  padding: 5px 0;
+}
+
+.friend-request-accept {
+  float: left;
+}
+
+.message-button {
+  padding: 5px 0;
+}
+
+.label {
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  color: darkgreen;
+  float: left;
+  padding: 0 15px 10px 0;
+}
