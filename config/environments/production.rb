@@ -69,8 +69,8 @@ VisageCodex::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'batasha-prod',
-      :access_key_id => ENV["ACCESS"],
-      :secret_access_key => ENV["SECRET"]
+      :access_key_id => ENV["S3_ACCESS"],
+      :secret_access_key => ENV["S3_SECRET"]
     }
   }
 end
