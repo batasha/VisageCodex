@@ -1,3 +1,5 @@
+require_relative '../initializers/keys.rb'
+
 VisageCodex::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -69,8 +71,8 @@ VisageCodex::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'batasha-prod',
-      :access_key_id => ACCESS,
-      :secret_access_key => SECRET
+      :access_key_id => ENV["ACCESS"],
+      :secret_access_key => ENV["SECRET"]
     }
   }
 end
