@@ -22,6 +22,7 @@ h1 {
   font-size: xx-large;
   color: darkgreen;
   padding: 20px;
+  float: left;
 }
 
 article, section, time {
@@ -57,7 +58,15 @@ ul {
 .nav-bar > li {
   position: relative;
   float: left;
-  padding: 0 20px 20px 20px;
+  padding: 40px 20px 20px 20px;
+}
+
+.nav-list {
+  color: darkgreen;
+}
+
+.nav-list:hover {
+  cursor: pointer;
 }
 
 .dropdown {
@@ -67,7 +76,7 @@ ul {
 }
 
 .dropdown > li {
-  padding: 5px 10px;
+  padding: 5px 10px 0 10px;
 }
 
 .nav-bar > li:hover > .dropdown {
@@ -79,7 +88,19 @@ ul {
 
 .sign-out > .button_to {
   float: right;
-  margin: 0;
+  padding: 40px 20px 20px 20px;
+
+  input {
+    border: none;
+    background: inherit;
+    font: inherit;
+    color: darkgreen;
+  }
+
+  input:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  }
 }
 
 .notice, .alert {

@@ -13,7 +13,7 @@
 
     <% if user_signed_in? %>
       <nav>
-        <ul class="nav-bar clearfix">
+        <ul class="nav-bar">
 
           <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Friends", friends_path %></li>
@@ -27,7 +27,10 @@
           <li><%= link_to "New Post", new_user_post_path(current_user)%></li>
 
           <li>
-            <span><%= "Notifications (#{notifications_count})" %></span>
+            <span class="nav-list">
+              <%= "Notifications (#{notifications_count})" %>
+            </span>
+            
             <ul class="dropdown">
               <li>
                 <%= link_to "#{message_count} Unread Messages",

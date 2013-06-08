@@ -48,4 +48,6 @@ VisageCodex::Application.configure do
       :secret_access_key => ENV["SECRET"]
     }
   }
+
+  Paperclip.options[:command_path] = 'C:\ImageMagick-6.6.8-Q16'
 end
