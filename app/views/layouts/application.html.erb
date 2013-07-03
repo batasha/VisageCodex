@@ -9,7 +9,7 @@
 
 <body>
   <header class="header clearfix">
-    <h1>VisageCodex</h1>
+    <h1 class="left">VisageCodex</h1>
 
     <% if user_signed_in? %>
       <nav>
@@ -54,11 +54,11 @@
           </li>
       </nav>
     <% end %>
-  </header>
 
+    </header>
   <header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice"><%= flash[:notice] %></p>
+    <p class="alert"><%= flash[:alert] %></p>
   </header>
 
   <div class="content">

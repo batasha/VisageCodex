@@ -6,7 +6,11 @@
   width: 500px;
   padding: 10px;
   border-radius: 1em;
-  background: gainsboro;
+  background: maroon;
+
+  h1 {
+    color: gold;
+  }
 }
 
 .post {
@@ -19,7 +23,7 @@
 }
 
 .post-pic {
-  border: 2px solid grey;
+  border: 3px double grey;
   float: left;
 }
 
