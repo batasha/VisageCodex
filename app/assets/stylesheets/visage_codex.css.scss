@@ -13,14 +13,16 @@ html, body, div, article, section, a, dl, h1, h2, h3, h4, h5, p, time, img, ul{
 /* GLOBAL STYLES */
 
 body {
-  font-family: Palatino, "Palatino Linotype", Baskerville, "Hoefler Text",
-               Georgia, "Times New Roman", Times, serif;
+  font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+}
+
+header {
+  font-family: 'MedievalSharp', cursive;
+  color: darkgreen;
 }
 
 h1 {
-  font-family: Papyrus, fantasy;
   font-size: xx-large;
-  color: darkgreen;
   padding: 20px;
   float: left;
 }
@@ -59,6 +61,7 @@ ul {
   position: relative;
   float: left;
   padding: 40px 20px 20px 20px;
+  font-family: 'MedievalSharp', cursive;
 }
 
 .nav-list {
