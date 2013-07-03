@@ -16,15 +16,20 @@ body {
   font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
 }
 
-header {
+h1, h2, h3, h4 {
   font-family: 'MedievalSharp', cursive;
-  color: darkgreen;
+  color: gold;
 }
 
 h1 {
-  font-size: xx-large;
+  font-size: 36pt;
   padding: 20px;
   float: left;
+}
+
+h2 {
+  font-size: 24pt;
+  padding: 0 0 10px 0;
 }
 
 article, section, time {
@@ -43,7 +48,7 @@ hr {
 
 a {
   text-decoration: none;
-  color: darkgreen;
+  color: gold;
 }
 
 a:hover {
@@ -55,8 +60,17 @@ ul {
 }
 
 .header {
-  background: gainsboro;
+  background: maroon;
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .nav-bar > li {
   position: relative;
   float: left;
@@ -64,8 +78,12 @@ ul {
   font-family: 'MedievalSharp', cursive;
 }
 
+.nav-bar .right > li {
+  float: right;
+}
+
 .nav-list {
-  color: darkgreen;
+  color: gold;
 }
 
 .nav-list:hover {
@@ -83,26 +101,26 @@ ul {
 }
 
 .nav-bar > li:hover > .dropdown {
-  background: gainsboro;
+  background: maroon;
   display: block;
   width: 225px;
   border-radius: 1em;
 }
 
-.sign-out > .button_to {
-  float: right;
-  padding: 40px 20px 20px 20px;
 
+.sign-out > .button_to {
   input {
     border: none;
+    margin: 0;
+    padding: 0;
     background: inherit;
     font: inherit;
-    color: darkgreen;
+    color: gold;
   }
 
   input:hover {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 

@@ -5,8 +5,8 @@
       <%= image_tag @user.avatar.url(:profile) %>
     </div>
 
-    <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
-    <h3><%= @status %></h3>
+    <h2><%= "#{@user.first_name} #{@user.last_name}"%></h2>
+    <em><%= @status %></em>
 
     <% unless @user == current_user %>
       <div class="friend">

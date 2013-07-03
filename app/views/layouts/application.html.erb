@@ -30,7 +30,7 @@
             <span class="nav-list">
               <%= "Notifications (#{notifications_count})" %>
             </span>
-            
+
             <ul class="dropdown">
               <li>
                 <%= link_to "#{message_count} Unread Messages",
@@ -43,12 +43,15 @@
             </ul>
           </li>
 
-          <li><%= link_to "Account Settings", settings_account_path %></li>
         </ul>
-        <div class="sign-out">
-          <%= button_to "Sign Out", destroy_user_session_path,
-              {method: :delete} %>
-        </div>
+        <ul class="nav-bar right">
+          <li><%= link_to "Account Settings", settings_account_path %></li>
+          <li>
+            <div class="sign-out">
+              <%= button_to "Sign Out", destroy_user_session_path,
+                  {method: :delete} %>
+            </div>
+          </li>
       </nav>
     <% end %>
   </header>
