@@ -1,21 +1,33 @@
-<div class="sign-in">
+<div class="sign-in clearfix">
 
   <h1 id="hero">VisageCodex</h1>
-  <h2>Sign in</h2>
 
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div><%= f.label :email %><br />
+  <%= form_for(resource, :as => resource_name, 
+      :url => session_path(resource_name)) do |f| %>
+
+    <h2>Sign in</h2>
+
+    <div class="form-field"><%= f.label :email %><br />
     <%= f.email_field :email, :autofocus => true %></div>
 
-    <div><%= f.label :password %><br />
+    <div class="form-field"><%= f.label :password %><br />
     <%= f.password_field :password %></div>
 
     <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <div class="form-field"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
     <% end -%>
 
-    <div><%= f.submit "Sign in" %></div>
+    <div class="form-field"><%= f.submit "Sign in" %></div>
+
+    <%= render "devise/shared/links" %>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <div class="tagline">
+    <span class="left-align">
+      <h2><em>The social <br />network<br /> for</em></h2>
+    </span>
+    <span class="right-align">
+      <h2><em>lords<br />and ladies<br />of the realm</em></h2>
+    </span> 
+  </div>
 </div>

@@ -1,11 +1,36 @@
 .sign-in {
   padding: 20px;
   background-color: lightyellow;
-  box-shadow: 0px 0px 40px dimgrey;
+  box-shadow: 0 0 40px dimgrey;
   border-radius: 10px;
 }
 
 #hero {
   font-size: 78px;
   color: maroon;
+  text-shadow: 1px 1px #400000;
+}
+
+.new_user {
+  margin: 30px;
+  float: left
+}
+
+.form-field {
+  margin: 10px 0;
+}
+
+.tagline {
+  float: right;
+  margin: 30px;
+  padding: 0 10px 0 0;
+  color: maroon;
+  width: 350px;
+  background: url(image_path('quill.png')) top/75% no-repeat;
+  
+  span > h2 {
+    font-family: 'Marck Script', 'La Belle Aurore', cursive;
+    font-size: 42px;
+    line-height: 42px;
+  }
 }

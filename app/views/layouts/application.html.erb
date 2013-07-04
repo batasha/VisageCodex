@@ -11,8 +11,9 @@
   <header class="header clearfix">
     <h1 class="left">VisageCodex</h1>
 
-    <% if user_signed_in? %>
-      <nav>
+    <nav>
+      <% if user_signed_in? %>
+
         <ul class="nav-bar">
 
           <li><%= link_to "Profile", user_path(current_user) %></li>
@@ -42,8 +43,8 @@
               </li>
             </ul>
           </li>
-
         </ul>
+
         <ul class="nav-bar right">
           <li><%= link_to "Account Settings", settings_account_path %></li>
           <li>
@@ -52,6 +53,15 @@
                   {method: :delete} %>
             </div>
           </li>
+        </ul>
+      <% else %>
+        <ul class="nav-bar right">
+          <li>
+            <div class="sign-out">
+              <%= link_to "Sign Up", new_user_path %>
+            </div>
+          </li>
+        </ul>
       </nav>
     <% end %>
 
