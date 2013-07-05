@@ -1,9 +1,11 @@
-<%= form_for @user, url: user_update_avatar_path, html: { multipart: true } do |f| %>
+<section class="content-box">
+  <%= form_for @user, url: user_update_avatar_path, html: { multipart: true } do |f| %>
 
-<div class="avatar">
-  <%= image_tag @user.avatar.url(:medium) %>
-</div>
-  <div><%= f.file_field :avatar %></div>
+  <div class="avatar">
+    <%= image_tag @user.avatar.url(:medium) %>
+  </div>
+    <div><%= f.file_field :avatar %></div>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</section>

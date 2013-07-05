@@ -9,7 +9,7 @@
 
 <body>
   <header class="header clearfix">
-    <h1 class="left">VisageCodex</h1>
+    <h1 class="left"><%= link_to "VisageCodex", root_url %></h1>
 
     <nav>
       <% if user_signed_in? %>
@@ -75,5 +75,6 @@
 
   <footer class="clearfix">
     <!-- <%= debug params %> -->
+  </footer>
 </body>
 </html>

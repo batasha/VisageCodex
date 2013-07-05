@@ -36,6 +36,10 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 36pt;
   padding: 10px 20px;
+
+  a {
+    color: gold;
+  }
 }
 
 h2 {
@@ -122,6 +126,7 @@ ul {
   display: none;
   position: absolute;
   border-bottom: 1px solid grey;
+  padding: 5px;
 }
 
 .dropdown > li {

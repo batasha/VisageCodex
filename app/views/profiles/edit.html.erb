@@ -1,11 +1,13 @@
-<%= form_for @profile, url: user_profile_path do |p| %>
-  <div><%= p.label :birthday %>
-  <%= p.date_select :birthday, start_year: Time.now.year - 100, end_year: Time.now.year %></div>
+<section class="content-box">
+  <%= form_for @profile, url: user_profile_path do |p| %>
+    <div><%= p.label :birthday %>
+    <%= p.date_select :birthday, start_year: Time.now.year - 100, end_year: Time.now.year %></div>
 
-  <div><%= p.label "Male" %>
-  <%= p.radio_button :gender, "male" %>
-  <%= p.label "Female" %>
-    <%= p.radio_button :gender, "female" %></div>
+    <div><%= p.label "Male" %>
+    <%= p.radio_button :gender, "male" %>
+    <%= p.label "Female" %>
+      <%= p.radio_button :gender, "female" %></div>
 
-  <div><%= p.submit "Update" %></div>
-<% end %>
+    <div><%= p.submit "Update" %></div>
+  <% end %>
+</section>

@@ -1,22 +1,26 @@
-<%= form_for @post, url: user_posts_path(@recipient) do |f| %>
-  <div>
-    <%= f.label :text, "What are you doing now?" %><br />
-    <%= f.text_field :text %>
-  </div>
-  <div>
-    <hr>
-    <%= f.fields_for :photo, html: { multipart: true } do |p| %>
+<section class="content-box">
+  <%= form_for @post, url: user_posts_path(@recipient) do |f| %>
+
     <div>
-      <%= p.label :image_file, "Attach photo" %><br />
-      <%= p.file_field :image_file %>
+      <%= f.label :text, "What are you doing now?" %><br />
+      <%= f.text_field :text %>
     </div>
     <div>
-      <%= p.label :album_id, "Select Album" %><br />
-      <%= p.collection_select :album_id, current_user.albums, :id,
-                              :name, {selected: @sender.albums.where(name:"Default").first} %>
+      <hr>
+      <%= f.fields_for :photo, html: { multipart: true } do |p| %>
+      <div>
+        <%= p.label :image_file, "Attach photo" %><br />
+        <%= p.file_field :image_file %>
+      </div>
+      <div>
+        <%= p.label :album_id, "Select Album" %><br />
+        <%= p.collection_select :album_id, current_user.albums, :id,
+                                :name, {selected: @sender.albums.where(name:"Default").first} %>
+      </div>
+
+      <% end %>
     </div>
 
-    <% end %>
-  </div>
-  <%= f.submit "Update Status"%>
-<% end %>
+    <%= f.submit "Update Status"%>
+  <% end %>
+</section>

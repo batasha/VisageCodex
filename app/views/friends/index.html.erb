@@ -1,10 +1,12 @@
-<ul>
-<% @friends.each do |friend| %>
-  <li>
-    <div>
-      <%= image_tag friend.avatar.url(:post) %>
-      <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
-    </div>
-  </li>
-<% end %>
-</ul>
+<div class="content-box">
+  <ul>
+  <% @friends.each do |friend| %>
+    <li>
+      <div>
+        <%= image_tag friend.avatar.url(:post) %>
+        <%= link_to "#{friend.first_name} #{friend.last_name}", user_path(friend) %>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+</div>
