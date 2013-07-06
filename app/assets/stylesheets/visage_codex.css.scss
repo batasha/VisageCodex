@@ -14,19 +14,7 @@ html, body, div, article, section, a, dl, h1, h2, h3, h4, h5, p, time, img, ul{
 
 body {
   font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
-  background-color: lightyellow;
-  position: relative;
-}
-
-html:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url('map.jpg') top center;
-  opacity: 0.2;
+  background: lightyellow image-url('map.png') top center;
 }
 
 h1, h2, h3, h4 {
